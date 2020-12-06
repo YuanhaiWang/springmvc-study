@@ -23,7 +23,11 @@
         <property name="suffix" value=".jsp"></property>
     </bean>
 
-    <!-- 开启springmvc框架对注解的支撑 -->
+    <!-- 开启springmvc框架对注解的支持 -->
+    <!-- 在 SpringMVC 的各个组件中，处理器映射器、处理器适配器、视图解析器称为 SpringMVC 的三大组件。
+        使 用 <mvc:annotation-driven> 自动加载 RequestMappingHandlerMapping （处理映射器） 和
+        RequestMappingHandlerAdapter （ 处 理 适 配 器 ） ， 可 用 在 SpringMVC.xml 配 置 文 件 中
+        使用<mvc:annotation-driven>替代注解处理器和适配器的配置。 -->
     <mvc:annotation-driven/>
 
 </beans>
