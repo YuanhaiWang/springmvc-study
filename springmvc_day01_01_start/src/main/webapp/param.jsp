@@ -17,12 +17,29 @@
     <br>
 
     <%--   请求参数绑定JavaBean  --%>
+    把数据封装到Account对象中：<br>
     <form action="param/saveAccount" method="post">
         姓名：<input type="text" name="username"/><br>
         密码：<input type="text" name="password"/><br>
         金额：<input type="text" name="money"/><br>
         用户姓名：<input type="text" name="user.uName"/><br>
         用户年龄：<input type="text" name="user.age"/><br>
+        <input type="submit" value="提交"/><br>
+    </form>
+
+    <br>
+    <%--   请求参数绑定集合  --%>
+    把数据封装到Account对象中，但是对象中存在List和Map集合：<br>
+    <form action="param/saveAccountContainCollection" method="post">
+        姓名：<input type="text" name="username"/><br>
+        密码：<input type="text" name="password"/><br>
+        金额：<input type="text" name="money"/><br>
+
+        用户姓名：<input type="text" name="userList[0].uName"/><br>
+        用户年龄：<input type="text" name="userList[0].age"/><br>
+
+        用户姓名：<input type="text" name="userMap['mapOne'].uName"/><br>
+        用户年龄：<input type="text" name="userMap['mapOne'].age"/><br>
         <input type="submit" value="提交"/><br>
     </form>
 
