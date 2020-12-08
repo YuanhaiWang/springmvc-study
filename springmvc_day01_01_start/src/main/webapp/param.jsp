@@ -43,5 +43,15 @@
         <input type="submit" value="提交"/><br>
     </form>
 
+    <br>
+    <%--   自定义类型转换  --%>
+    自定义类型转换器：<br>
+    <form action="param/saveUser" method="post">
+        用户姓名：<input type="text" name="uName"/><br>
+        用户年龄：<input type="text" name="age"/><br>
+        日期：<input type="text" name="date"/><br>
+        <input type="submit" value="提交"/><br>
+    </form>
+
 </body>
 </html>

@@ -2,6 +2,7 @@ package com.yuanhai.controller;
 
 import com.yuanhai.domain.Account;
 import com.yuanhai.domain.AccountForCollection;
+import com.yuanhai.domain.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -49,6 +50,18 @@ public class ParamController {
     public String saveAccountContainCollection(AccountForCollection accountForCollection){
         System.out.println("saveAccountContainCollection run...");
         System.out.println(accountForCollection);
+        return "success";
+    }
+
+    /**
+     * 自定义类型转换器
+     * @param user
+     * @return String
+     */
+    @RequestMapping("/saveUser")
+    public String saveUser(User user){
+        System.out.println("saveUser run...");
+        System.out.println(user);
         return "success";
     }
 
