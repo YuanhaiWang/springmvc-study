@@ -6,6 +6,10 @@ import com.yuanhai.domain.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 /**
  * 请求参数绑定
  * @author yuanhai
@@ -62,6 +66,21 @@ public class ParamController {
     public String saveUser(User user){
         System.out.println("saveUser run...");
         System.out.println(user);
+        return "success";
+    }
+
+    /**
+     * 测试获取servlet原生的API
+     * @return String
+     */
+    @RequestMapping("/testServletAPI")
+    public String testServletAPI(HttpServletRequest request, HttpServletResponse response){
+        System.out.println("testServletAPI run...");
+        System.out.println(request);
+        System.out.println(response);
+        HttpSession session = request.getSession();
+        System.out.println("session--->:"+session);
+        System.out.println("ServletContext();--->:"+session.getServletContext());
         return "success";
     }
 

@@ -53,5 +53,9 @@
         <input type="submit" value="提交"/><br>
     </form>
 
+    <br>
+    <%--   请求参数绑定String  --%>
+    <a href="param/testServletAPI">测试获取servlet原生的API</a>
+
 </body>
 </html>
