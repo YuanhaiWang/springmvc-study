@@ -26,11 +26,30 @@
 
     ------------------------------------------------------------------------------
     <br>
-    <a href="anno/testPathVariable/10">PathVariable注解</a>
+    <a href="anno/testPathVariable/10">PathVariable注解</a><br>
 
     ------------------------------------------------------------------------------
     <br>
-    <a href="anno/testRequestHeader">RequestHeader注解</a>
+    <a href="anno/testRequestHeader">RequestHeader注解</a><br>
+
+    ------------------------------------------------------------------------------
+    <br>
+    <a href="anno/testCookieValue">CookieValue</a><br>
+
+    ------------------------------------------------------------------------------
+    <br>
+    ModelAttribute注解：
+    <form action="anno/testModelAttribute" method="post">
+        用户姓名：<input type="text" name="uName"/><br>
+        用户年龄：<input type="text" name="age"/><br>
+        <input type="submit" value="提交"/><br>
+    </form>
+
+    ------------------------------------------------------------------------------
+    <br>
+    <a href="anno/testSessionAttributes">SessionAttributes</a><br>
+    <a href="anno/getSessionAttributes">getSessionAttributes</a><br>
+    <a href="anno/delSessionAttributes">delSessionAttributes</a><br>
 
 
 </body>
