@@ -1,0 +1,71 @@
+package com.yuanhai.controller;
+
+import com.yuanhai.domain.User;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
+/**
+ * @author yuanhai
+ * @date 2020/12/13
+ */
+@Controller
+@RequestMapping("/user")
+public class UserController {
+
+    /**
+     * 返回值类型是String类型，同时返回一个User对象
+     * @param model
+     * @return
+     */
+    @RequestMapping("/testString")
+    public String testString(Model model){
+        System.out.println("testString run ...");
+        // 模拟从数据库中查询一个User对象，把这个User对象存起来，转发到页面上，从页面上把这个对象的信息取出来
+        // 模拟从数据库中查询到User对象
+        User user = new User();
+        user.setUsername("渊海");
+        user.setPassword("123456");
+        user.setAge(30);
+        // Model对象可以用来存数据
+        model.addAttribute("user",user);
+        return "success";
+    }
+
+    /**
+     * 返回值类型是void类型
+     *      请求转发是一次请求，请求路径不用加上项目名称
+     *      重定向是两次请求，请求路径要加上项目名称
+     * @param request
+     * @param response
+     */
+    @RequestMapping("/testVoid")
+    public void testVoid(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        System.out.println("testVoid run ...");
+        // 返回值为void情况下，如果想要跳转页面，可以采用以下方法：
+        // 一，使用请求转发
+        // 编写请求转发的程序，请求转发是一次请求，可以访问到WEN-INF目录下的资源
+        // 手动调用请求转发的方法，不会去执行视图解析器，所以要自己提供完整目录
+//        request.getRequestDispatcher("/WEB-INF/pages/success.jsp").forward(request,response);
+
+        // 二：使用重定向
+        // 重定向等于重新发了一次请求，发请求是请求不到WEB-INF目录下的资源的，所以这里重定向到index.jsp去
+//        response.sendRedirect(request.getContextPath()+"/index.jsp");
+
+        // 三：有可能会直接进行响应
+        // 如果想响应中文，需要解决中文乱码
+        // 设置乱码转换
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
+        response.getWriter().println("你好   hello");
+
+        return;
+    }
+
+
+}
