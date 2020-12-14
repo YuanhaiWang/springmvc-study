@@ -23,6 +23,11 @@
         <property name="suffix" value=".jsp"></property>
     </bean>
 
+    <!-- 配置：告知前端控制器，哪些静态资源不进行拦截-->
+    <mvc:resources mapping="/js/**" location="/js/"/><!-- javascript -->
+    <mvc:resources mapping="/css/**" location="/css/"/> <!-- 样式 -->
+    <mvc:resources mapping="/images/**" location="/images/"/> <!-- 图片 -->
+
     <!-- 开启springmvc框架对注解的支持 -->
     <!-- 以及对自定义类型转换器的支持-->
     <!-- 在 SpringMVC 的各个组件中，处理器映射器、处理器适配器、视图解析器称为 SpringMVC 的三大组件。

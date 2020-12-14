@@ -9,6 +9,21 @@
 <html>
 <head>
     <title>Title</title>
+
+    <!-- 引入jquery -->
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+
+    <script>
+
+        // 页面加载，给btn绑定点击事件
+        $(function () {
+            $("#btn").click(function () {
+                alert("hello btn");
+            });
+        });
+
+    </script>
+
 </head>
 <body>
 
@@ -19,6 +34,11 @@
     <a href="user/testModelAndView">返回值类型为ModelAndView</a><br>
     ------------------------------------------------------------<br>
     <a href="user/testForwardOrRedirect">forward和redirect（转发和重定向）</a><br>
+
+=========================================================================================<br>
+
+    <button id="btn">发送ajax请求</button>
+
 
 </body>
 </html>
