@@ -15,7 +15,10 @@
     <a href="user/testString">返回值类型为String</a><br>
     ------------------------------------------------------------<br>
     <a href="user/testVoid">返回值类型为void</a><br>
-
+    ------------------------------------------------------------<br>
+    <a href="user/testModelAndView">返回值类型为ModelAndView</a><br>
+    ------------------------------------------------------------<br>
+    <a href="user/testForwardOrRedirect">forward和redirect（转发和重定向）</a><br>
 
 </body>
 </html>
