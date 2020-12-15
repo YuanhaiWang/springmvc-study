@@ -18,7 +18,23 @@
         // 页面加载，给btn绑定点击事件
         $(function () {
             $("#btn").click(function () {
-                alert("hello btn");
+                // alert("hello btn");
+                // 发送ajax请求
+                $.ajax({
+                    // 编写jason格式，设置属性和值
+                    url:"user/testAjax",
+                    contentType:"application/json;charset=utf-8",
+                    data:'{"username":"渊海","password":"123321","age":"22"}',
+                    dataType:"json",
+                    type:"post",
+                    success:function (data) {
+                        // 此处的data表示服务器端会响应的json数据
+                        alert(data);
+                        alert(data.username);
+                    }
+                });
+
+
             });
         });
 
