@@ -1,7 +1,8 @@
 package com.yuanhai.controller;
 
+import com.sun.jersey.api.client.Client;
+import com.sun.jersey.api.client.WebResource;
 import org.apache.commons.fileupload.FileItem;
-import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.springframework.stereotype.Controller;
@@ -99,6 +100,36 @@ public class FileUploadController {
         fileName = uuid+"_"+fileName;
         // 完成文件上传
         upload.transferTo(new File(path,fileName));
+
+        return "success";
+    }
+
+    /**
+     * springmvc，跨图片服务器方式文件上传
+     * 方法接收MultipartFile对象的名字，必须和前端表单的名字一样，所以这里对象名字是upload
+     * @param upload
+     * @return
+     */
+    @RequestMapping("/fileUpload3")
+    public String fileUpload3(MultipartFile upload) throws IOException {
+        System.out.println("springmvc跨图片服务器方式的文件上传...");
+
+        // 定义上传文件服务器的路径
+        String path = "http://localhost:9090/fileupload_server_war_exploded/uploads/";
+
+        // 获取上传文件的名称
+        String fileName = upload.getOriginalFilename();
+        // 把文件名称设置成唯一值,uuid
+        String uuid = UUID.randomUUID().toString().replace("-","");
+        fileName = uuid+"_"+fileName;
+
+        // 完成文件上传，跨图片服务器的方式，把图片传到图片服务器上
+        // 创建一个客户端的对象
+        Client client = Client.create();
+        // 和图片服务器进行连接
+        WebResource webResource = client.resource(path + fileName);
+        // 上传文件到图片服务器
+        webResource.put(upload.getBytes());
 
         return "success";
     }
